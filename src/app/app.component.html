@@ -1,20 +1,63 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div style="text-align:left">
+<p><b style="font-size: 1.17em;">Student: </b><span>Bob Smith</span></p>
+<b style="font-size: 1.17em;;">Email: </b><span>bobsmith@gmail.com</span>
+<h3>Performance</h3>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<table>
+  <tr>
+    <th>Points</th>
+    <th>Points Possible</th>
+    <th>Percent</th>
+    <th>Grade</th>
+  </tr>
+  <tr>
+    <td>{{performanceTable.points}}</td>
+    <td>{{performanceTable.pointsPossible}}</td>
+    <td>{{performanceTable.overallDecimal | percent:'1.0-1'}}</td>
+    <td *ngIf="!performanceTable.pointsPossible">-</td>
+    <td *ngIf="performanceTable.pointsPossible">{{performanceTable.overallDecimal | letterGrade}}</td>
+  </tr>
+  
+</table>
+
+<hr>
+
+<h3>Add Assignment</h3>
+
+<p>
+  <label>Assignment Name: </label>
+  <input type="string" [(ngModel)]="assignmentName" />
+</p>
+
+<p>
+  <label>Scored Points: </label>
+  <input type="number" [(ngModel)]="scoredPoints" />
+</p>
+
+<p>
+  <label>Points Possible: </label>
+  <input type="number" [(ngModel)]="pointsPossible" />
+</p>
+
+
+ <button (click)="addAssignmentRow()">Add Assignment</button>
+
+ <h3>Assignments</h3>
+
+
+ <table>
+  <tr>
+    <th>Assignment Name</th>
+    <th>Points Scored</th>
+    <th>Points Possible</th>
+    <th>Percent</th>
+  </tr>
+    <tr *ngFor="let assignmentRow of assignmentTable">
+    <td>{{assignmentRow.assignmentName}}</td>
+    <td>{{assignmentRow.scoredPoints}}</td>
+    <td>{{assignmentRow.pointsPossible}}</td>
+    <td>{{assignmentRow.assignmentDecimal | percent:'1.0-1' }}</td>
+  </tr>
+  
+</table>
