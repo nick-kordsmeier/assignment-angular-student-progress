@@ -1,0 +1,20 @@
+<div style="text-align:left">
+  <h3>Performance</h3>
+  </div>
+  
+  <table>
+    <tr>
+      <th>Points</th>
+      <th>Points Possible</th>
+      <th>Percent</th>
+      <th>Grade</th>
+    </tr>
+    <tr>
+      <td>{{performanceTable.points}}</td>
+      <td>{{performanceTable.pointsPossible}}</td>
+      <td>{{performanceTable.overallDecimal | percent:'1.0-1'}}</td>
+      <td *ngIf="!performanceTable.pointsPossible">-</td>
+      <td *ngIf="performanceTable.pointsPossible">{{performanceTable.overallDecimal | letterGrade}}</td>
+    </tr>
+    
+  </table>

@@ -1,63 +1,7 @@
-<div style="text-align:left">
-<p><b style="font-size: 1.17em;">Student: </b><span>Bob Smith</span></p>
-<b style="font-size: 1.17em;;">Email: </b><span>bobsmith@gmail.com</span>
-<h3>Performance</h3>
-</div>
+<app-student-info></app-student-info>
 
-<table>
-  <tr>
-    <th>Points</th>
-    <th>Points Possible</th>
-    <th>Percent</th>
-    <th>Grade</th>
-  </tr>
-  <tr>
-    <td>{{performanceTable.points}}</td>
-    <td>{{performanceTable.pointsPossible}}</td>
-    <td>{{performanceTable.overallDecimal | percent:'1.0-1'}}</td>
-    <td *ngIf="!performanceTable.pointsPossible">-</td>
-    <td *ngIf="performanceTable.pointsPossible">{{performanceTable.overallDecimal | letterGrade}}</td>
-  </tr>
-  
-</table>
+<app-performance-table></app-performance-table>
 
 <hr>
 
-<h3>Add Assignment</h3>
-
-<p>
-  <label>Assignment Name: </label>
-  <input type="string" [(ngModel)]="assignmentName" />
-</p>
-
-<p>
-  <label>Scored Points: </label>
-  <input type="number" [(ngModel)]="scoredPoints" />
-</p>
-
-<p>
-  <label>Points Possible: </label>
-  <input type="number" [(ngModel)]="pointsPossible" />
-</p>
-
-
- <button (click)="addAssignmentRow()">Add Assignment</button>
-
- <h3>Assignments</h3>
-
-
- <table>
-  <tr>
-    <th>Assignment Name</th>
-    <th>Points Scored</th>
-    <th>Points Possible</th>
-    <th>Percent</th>
-  </tr>
-    <tr *ngFor="let assignmentRow of assignmentTable">
-    <td>{{assignmentRow.assignmentName}}</td>
-    <td>{{assignmentRow.scoredPoints}}</td>
-    <td>{{assignmentRow.pointsPossible}}</td>
-    <td>{{assignmentRow.assignmentDecimal | percent:'1.0-1' }}</td>
-  </tr>
-  
-</table>
+<app-add-assignments></app-add-assignments>

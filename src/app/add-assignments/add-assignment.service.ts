@@ -7,7 +7,8 @@ export class AddAssignmentService {
   assignmentTable = [];
   runningTotalPoints = {
     points: 0,
-    pointsPossible: 0
+    pointsPossible: 0,
+    overallDecimal: 0
   }
 
   addAssignment(assignmentName: string, scoredPoints: number, pointsPossible: number ): AssignmentRow[] {
@@ -22,14 +23,12 @@ export class AddAssignmentService {
 
     this.assignmentTable.push(assignmentRow);
 
-    return this.assignmentTable;
-
-  }
-
-  runningTotals(scoredPoints: number, pointsPossible: number) {
     this.runningTotalPoints.points += scoredPoints;
     this.runningTotalPoints.pointsPossible += pointsPossible;
-    return this.runningTotalPoints;
+    this.runningTotalPoints.overallDecimal = this.runningTotalPoints.points / this.runningTotalPoints.pointsPossible;
+
+    return this.assignmentTable;
+
   }
 
 }
