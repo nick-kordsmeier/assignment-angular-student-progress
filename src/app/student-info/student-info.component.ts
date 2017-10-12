@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-info.component.css']
 })
 export class StudentInfoComponent implements OnInit {
+  studentName = "Bob Smith";
+  studentEmail = "bobsmith@gmail.com"
 
   constructor() { }
 

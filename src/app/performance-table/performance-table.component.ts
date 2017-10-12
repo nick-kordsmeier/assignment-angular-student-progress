@@ -8,14 +8,14 @@ import { AddAssignmentService } from '../add-assignments/add-assignment.service'
   styleUrls: ['./performance-table.component.css']
 })
 export class PerformanceTableComponent implements OnInit {
+  performanceTable
 
   constructor(
     public addAssignment: AddAssignmentService,
   ) { }
 
-  performanceTable = this.addAssignment.runningTotalPoints;
-
   ngOnInit() {
+    this.performanceTable = this.addAssignment.runningTotalPoints;
   }
 
 }

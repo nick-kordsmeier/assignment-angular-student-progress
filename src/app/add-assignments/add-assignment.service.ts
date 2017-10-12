@@ -12,14 +12,8 @@ export class AddAssignmentService {
   }
 
   addAssignment(assignmentName: string, scoredPoints: number, pointsPossible: number ): AssignmentRow[] {
-    let assignmentDecimal = scoredPoints / pointsPossible;
-    
-    let assignmentRow: AssignmentRow = {
-      assignmentName: assignmentName,
-      scoredPoints: scoredPoints,
-      pointsPossible: pointsPossible,
-      assignmentDecimal: assignmentDecimal
-    }
+  
+    let assignmentRow = new AssignmentRow( assignmentName, scoredPoints, pointsPossible );
 
     this.assignmentTable.push(assignmentRow);
 

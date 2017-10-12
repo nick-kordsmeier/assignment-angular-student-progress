@@ -13,7 +13,7 @@ export class AddAssignmentsComponent implements OnInit {
     private addAssignment: AddAssignmentService,
   ) { }
 
-  assignmentTable = [];
+    assignmentTable = [];
   
     assignmentName: string;
     scoredPoints: number;
